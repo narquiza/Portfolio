@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page Portfolio</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      scroll-behavior: smooth;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Background Video */
+    .bg-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: rgba(0,0,0,0.8);
+      display: flex; justify-content: center;
+      padding: 12px;
+      z-index: 1000;
+    }
+    header a {
+      color: #00ff41;
+      text-decoration: none;
+      margin: 0 12px;
+      font-family: monospace;
+      font-size: 16px;
+    }
+    header a:hover { text-decoration: underline; }
+
+    /* Sections */
+    section {
+      min-height: 85vh;
+      padding: 110px 15px 60px;
+      text-align: center;
+      background-color: rgba(0,0,0,0.55);
+    }
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: #00ff41;
+    }
+    section p {
+      font-size: 16px;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.5;
+    }
+
+    /* About Image */
+    .about-img {
+      width: 200px;
+      height: auto;
+      border: 2px solid #00ff41;
+      margin-bottom: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Performance Grid */
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      max-width: 450px;
+      margin: 25px auto 0;
+    }
+    .task-grid div {
+      background: #001100;
+      border: 2px solid #00ff41;
+      padding: 15px 0;
+      font-size: 14px;
+      font-family: monospace;
+    }
+
+    /* Gallery & Audio Grids */
+    .gallery-grid,
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      max-width: 450px;
+      margin: 25px auto 0;
+      justify-items: center;
+    }
+    .gallery-grid div,
+    .gear-grid div {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border: 2px solid #00ff41;
+      background-color: #001100;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .gallery-grid img,
+    .gear-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Audio */
+    audio { display: block; margin: 20px auto; }
+
+    /* Contact Box */
+    .contact-box {
+      text-align: center;
+      border: 2px solid #00ff41;
+      padding: 20px;
+      max-width: 350px;
+      margin: 25px auto 0;
+      background: #001100;
+    }
+    .contact-box a {
+      display: block;
+      margin: 12px 0;
+      color: #00ff41;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00ff41;
+      color: black;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      display: none;
+      z-index: 1001;
+    }
+    #backToTop:hover { background-color: #00cc33; }
+  </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop class="bg-video">
+  <source src="mgs.mp4" type="video/mp4">
+</video>
+
+<!-- Header -->
+<header>
+  <a href="#about">About</a>
+  <a href="#performance">Performance</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#audio">Audio</a>
+  <a href="#contact">Contact</a>
+</header>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <img src="Nate.jpeg" alt="My Photo" class="about-img">
+  <p>I'm Nathan</p>
+</section>
+
+<!-- Performance Task -->
+<section id="performance">
+  <h2>Performance Task</h2>
+  <div class="task-grid">
+    <div>Task 1</div><div>Task 2</div>
+    <div>Task 3</div><div>Task 4</div>
+    <div>Task 5</div><div>Task 6</div>
+    <div>Task 7</div><div>Task 8</div>
+    <div>Task 9</div><div>Task 10</div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <div><img src="Bro.jpg" alt="Bro"></div>
+    <div><img src="Fam.jpg" alt="Fam"></div>
+    <div><img src="Ma.jpg" alt="Ma"></div>
+    <div><img src="Yo.jpg" alt="Yo"></div>
+  </div>
+</section>
+
+<!-- Audio -->
+<section id="audio">
+  <h2>Audio</h2>
+  <audio controls>
+    <source src="Kids.mp3" type="audio/mpeg">
+  </audio>
+  <div class="gear-grid">
+    <div><img src="Kid.jpg" alt="Kid"></div>
+    <div><img src="Yeah.jpg" alt="Yeah"></div>
+    <div><img src="KIDS.jpg" alt="KIDS"></div>
+    <div><img src="Time.jpg" alt="Time"></div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-box">
+    <a href="mailto:arquiza.nathan1026@gmail.com">📧 Email Me</a>
+    <a href="https://www.facebook.com/rey.arquiza.965" target="_blank">📘 Facebook</a>
+    <a href="https://www.instagram.com/silrey26__?igsh=djUyNTk0NWd1ZGxp" target="_blank">📸 Instagram</a>
+    <a href="https://www.youtube.com/@nathanarquiza2545" target="_blank">▶️ YouTube</a>
+  </div>
+</section>
+
+<!-- Back to Top Button -->
+<button id="backToTop">↑ Top</button>
+
+<script>
+  // Back to Top button
+  const btn = document.getElementById('backToTop');
+  window.onscroll = () => {
+    btn.style.display = document.documentElement.scrollTop > 200 ? 'block' : 'none';
+  };
+  btn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
+
+</body>
+</html>
